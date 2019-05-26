@@ -1,0 +1,21 @@
+{
+    "name": "react-redux-workshop-2019-06",
+    "version": "0.0.1",
+    "description": "A workshop to teach React and Redux.",
+    "scripts": {
+        "postinstall": "node scripts/install.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AndrewSouthpaw/react-redux-workshop-2019-06.git"
+    },
+    "author": "Andrew Smith <andrewsmith@alumni.stanford.edu>",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/AndrewSouthpaw/react-redux-workshop-2019-06/issues"
+    },
+    "homepage": "https://github.com/AndrewSouthpaw/react-redux-workshop-2019-06#readme",
+    "devDependencies": {
+        "shelljs": "^0.8.3"
+    }
+}
