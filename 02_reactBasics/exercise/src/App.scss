@@ -37,9 +37,38 @@ code {
   color: #61dafb;
 }
 
-.opacity-box {
-  width: 400px;
-  height: 400px;
-  border: aqua solid 3px;
-  background-color: aqua;
+img {
+  height: 200px;
+}
+
+button {
+  font-size: 26px;
+}
+
+.cage-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.cage-img {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+
+.overlay-yes {
+  background-color: green;
+}
+
+.overlay-no {
+  background-color: red;
 }

@@ -8,9 +8,10 @@ const OpacityBox = ({ opacity, controlled }) => (
 )
 
 export class App extends React.Component {
-  state = {
-    opacity: 1,
-    controlled: false,
+  state = {}
+
+  componentDidMount() {
+    this.stopControlling()
   }
 
   setOpacity = (event) => {

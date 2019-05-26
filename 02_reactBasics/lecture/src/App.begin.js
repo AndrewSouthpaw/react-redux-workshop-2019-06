@@ -43,7 +43,6 @@ export class App extends React.Component {
   }
 
   render() {
-    console.log('this.modulator.controlled', this.modulator.controlled)
     return (
       <div className="App">
         <header className="App-header">
