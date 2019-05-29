@@ -1,43 +1,46 @@
 import React from 'react'
 import './App.scss'
-import { fakeGetTodos, fakeSaveTodoToServer } from './lib/helpers'
-import { inc, last, propOr } from 'ramda'
+import { Todo } from './lib/todo'
+import shortid from 'shortid'
+import { assoc, assocPath, prop, append, pipe, flip } from 'ramda'
 
-class Todo extends React.Component {
-  render() {
-    return (<div className="form-group">{this.props.name}</div>)
-  }
+const lookup = flip(prop)
+
+const addTodo = (todo, state) => {
+  const newTodo = { id: shortid.generate(), name: todo }
+  return pipe(
+    assocPath(['todosById', newTodo.id], newTodo),
+    assoc('ids', append(newTodo.id, state.ids)),
+  )(state)
+}
+
+const getTodos = (state) => {
+  const { ids, todosById } = state
+  return ids.map(lookup(todosById))
 }
 
 export class App extends React.Component {
   state = {
-    todos: [],
+    ids: [],
+    todosById: {},
     todo: '',
-  }
-
-  async componentDidMount() {
-    const data = (await fakeGetTodos()).data
-    this.setState({ todos: data })
   }
 
   resetFom() { this.setState({ todo: '' }) }
 
   addTodo = async (e) => {
     e.preventDefault()
-    const { todos, todo } = this.state
-    this.setState({ saving: true })
-    await fakeSaveTodoToServer(todo)
-    this.setState({ todos: [...todos, { id: inc(propOr(0, 'id', last(todos))), name: todo }], saving: false })
+    this.setState(addTodo(this.state.todo, this.state))
     this.resetFom()
   }
 
   handleChange = (e) => { this.setState({ todo: e.target.value }) }
 
   render() {
-    const { todos, todo, saving } = this.state
+    const { ids, todo, saving } = this.state
     return (
       <div className="App">
-        <h1>My Todos ({todos.length})</h1>
+        <h1>My Todos ({ids.length})</h1>
         <form onSubmit={this.addTodo} ref={this.form}>
           <input
             type="text"
@@ -50,7 +53,7 @@ export class App extends React.Component {
           <button type="submit">{saving ? 'Saving...' : 'Add Todo'}</button>
         </form>
         <ul>
-          {todos.map((todo) => (
+          {getTodos(this.state).map((todo) => (
             <Todo {...todo} key={todo.id} />
           ))}
         </ul>

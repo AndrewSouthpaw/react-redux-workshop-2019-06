@@ -1,23 +1,12 @@
 import React from 'react'
 import './App.scss'
-import { fakeGetTodos, fakeSaveTodoToServer } from './lib/helpers'
 import { inc, last, propOr } from 'ramda'
-
-class Todo extends React.Component {
-  render() {
-    return (<div className="form-group">{this.props.name}</div>)
-  }
-}
+import { Todo } from './lib/todo'
 
 export class App extends React.Component {
   state = {
     todos: [],
     todo: '',
-  }
-
-  async componentDidMount() {
-    const data = (await fakeGetTodos()).data
-    this.setState({ todos: data })
   }
 
   resetFom() { this.setState({ todo: '' }) }
@@ -26,7 +15,6 @@ export class App extends React.Component {
     e.preventDefault()
     const { todos, todo } = this.state
     this.setState({ saving: true })
-    await fakeSaveTodoToServer(todo)
     this.setState({ todos: [...todos, { id: inc(propOr(0, 'id', last(todos))), name: todo }], saving: false })
     this.resetFom()
   }
