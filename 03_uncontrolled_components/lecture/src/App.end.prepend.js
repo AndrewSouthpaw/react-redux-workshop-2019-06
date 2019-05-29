@@ -6,9 +6,7 @@ class Todo extends React.Component {
     return (
       <div className="form-group">
         {this.props.name}
-
-        <input type='text' className='form-control' />
-
+        <input type="text" />
       </div>
     )
   }
@@ -18,32 +16,35 @@ let counter = 1
 
 export class App extends React.Component {
   state = {
-    todo: '',
     todos: [],
   }
 
+  form = React.createRef()
+
+  resetFom() { this.form.current.reset() }
+
   addTodo = (e) => {
     e.preventDefault()
-    const { todo, todos } = this.state
-    this.setState({ todo: '', todos: [...todos, { id: counter++, name: todo }] })
+    const { todos } = this.state
+    const data = new FormData(e.target)
+    this.setState({ todos: [...todos, { id: counter++, name: data.get('todo') }] })
+    this.resetFom()
   }
 
   prependTodo = () => {
-    const { todo, todos } = this.state
-    this.setState({ todo: '', todos: [{ id: counter++, name: todo }, ...todos] })
-  }
-
-  handleChange = (e) => {
-    this.setState({ todo: e.target.value })
+    const { todos } = this.state
+    const data = new FormData(this.form.current)
+    this.setState({ todos: [{ id: counter++, name: data.get('todo') }, ...todos] })
+    this.resetFom()
   }
 
   render() {
-    const { todos, todo } = this.state
+    const { todos } = this.state
     return (
       <div className="App">
         <h1>My Todos ({todos.length})</h1>
-        <form onSubmit={this.addTodo}>
-          <input type="text" placeholder="Add a todo" value={todo} onChange={this.handleChange} />
+        <form onSubmit={this.addTodo} ref={this.form}>
+          <input type="text" placeholder="Add a todo" name="todo" />
           <button type="submit">Add Todo</button>
           <button type="button" onClick={this.prependTodo}>Prepend</button>
         </form>
