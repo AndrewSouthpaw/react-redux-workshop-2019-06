@@ -8,6 +8,12 @@ class Todo extends React.Component {
   }
 }
 
+/**
+ * Goal:
+ * - Load data asynchronously from the server using `fakeGetTodos`
+ * - When adding a todo, first save it to the server using `fakeSaveTodoToServer`. More details in `addTodo` method.
+ */
+
 export class App extends React.Component {
   state = {
     todos: [],

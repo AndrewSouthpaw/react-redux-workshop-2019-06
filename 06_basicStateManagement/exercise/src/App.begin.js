@@ -19,6 +19,12 @@ const getTodos = (state) => {
   return ids.map(lookup(todosById))
 }
 
+/**
+ * Goal:
+ * - Display a checkbox next to each todo
+ * - When the checkbox is marked, remove the todo from state
+ */
+
 export class App extends React.Component {
   state = {
     ids: [],

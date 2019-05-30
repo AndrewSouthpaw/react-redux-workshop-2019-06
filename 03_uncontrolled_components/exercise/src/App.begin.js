@@ -2,6 +2,15 @@ import React from 'react'
 import './App.scss'
 import { formDataToObject } from './lib/formDataToObject'
 
+/**
+ * Goal:
+ * - Implement EditPizza to allow user to configure their pizza size and toppings
+ * - Have `EditPizza` return the data from the form to the `onSave` prop as a new pizza configuration
+ * - In `App`, take the new pizza and update the pizza in state
+ * - Be able to begin editing a pizza that's been saved with `editPizza`
+ * - Editing the pizza again should prepopulate the form with the current configuration of the pizza
+ */
+
 class EditPizza extends React.Component {
   savePizza = (e) => {
     /**
@@ -18,12 +27,12 @@ class EditPizza extends React.Component {
         <p>ID: {pizza.id}</p>
         <p>Size</p>
         <div>
-          {/* give user choice among sm, md, lg values for pizza */}
+          {/* give user choice among sm, md, lg values for pizza as radio buttons */}
           {/* remember to default to the current value for the pizza */}
         </div>
         <p>Toppings</p>
         <div>
-          {/* give user choice among meat, veggie, cheese values for pizza toppings */}
+          {/* give user choice among meat, veggie, cheese values for pizza toppings as checkboxes */}
           {/* give form input name should be `toppings[]` to denote it's an array */}
           {/* remember to default to the current value for the pizza */}
         </div>

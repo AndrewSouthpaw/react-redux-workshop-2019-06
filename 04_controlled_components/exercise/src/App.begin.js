@@ -2,6 +2,12 @@ import React from 'react'
 import './App.scss'
 import { formDataToObject } from './lib/formDataToObject'
 
+/**
+ * Goal:
+ * - Refactor `EditPizza` to use controlled components
+ * - BONUS: refactor the input checkboxes or radio buttons into separate components to cut down on redundancy
+ */
+
 class EditPizza extends React.Component {
   savePizza = (e) => {
     e.preventDefault()
