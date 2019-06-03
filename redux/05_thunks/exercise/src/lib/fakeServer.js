@@ -19,7 +19,7 @@ const simulateServerFailure = (data) => {
   }
 }
 
-export const getTodosFromServer = () => {
+export const getTodosFromServerAsync = () => {
   simulateServerFailure({ data: todos })
 }
 
