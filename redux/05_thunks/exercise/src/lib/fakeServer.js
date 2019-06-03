@@ -1,3 +1,5 @@
+const PROBABILITY_OF_SERVER_FAILURE = 0.25
+
 let id = 5
 
 export const nextId = () => id++
@@ -9,18 +11,18 @@ const todos = [
   { id: 4, text: 'Profit' },
 ]
 
-export const getTodosFromServer = () => {
-  if (Math.random() < 0.9) {
+const simulateServerFailure = (data) => {
+  if (Math.random() < PROBABILITY_OF_SERVER_FAILURE) {
     return Promise.reject('Could not talk to server, try again later. 🤷‍♂️')
   } else {
-    return Promise.resolve({ data: todos })
+    return Promise.resolve(data)
   }
 }
 
+export const getTodosFromServer = () => {
+  simulateServerFailure({ data: todos })
+}
+
 export const saveTodoToServer = (todo) => {
-  if (Math.random() < 0.9) {
-    return Promise.reject('Could not talk to server, try again later. 🤷‍♂️')
-  } else {
-    return Promise.resolve({ id: nextId(), text: todo, completed: false })
-  }
+  simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
 }

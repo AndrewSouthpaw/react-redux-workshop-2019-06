@@ -11,8 +11,8 @@ export const toggleTodo = (index) =>
 export const addAndSaveTodoAsync = (text) => (
   async (dispatch, getState) => {
     /**
-     * use `saveTodoToServer` to talk to server and save the todo, and then store the returned object in state.
-     * Add error handling when the server call fails.
+     * use `saveTodoToServer` to talk to server and save the todo, and then store the object returned from the
+     * server call into the Redux state.
      */
   }
 )
