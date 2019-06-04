@@ -42,15 +42,8 @@ export class App extends React.Component {
       <div className="App">
         <h1>My Todos ({ids.length})</h1>
         <form onSubmit={this.addTodo} ref={this.form}>
-          <input
-            type="text"
-            placeholder="Add a todo"
-            name="todo"
-            value={todo}
-            onChange={this.handleChange}
-            disabled={saving}
-          />
-          <button type="submit">{saving ? 'Saving...' : 'Add Todo'}</button>
+          <input type="text" placeholder="Add a todo" name="todo" value={todo} onChange={this.handleChange} />
+          <button type="submit">Add Todo</button>
         </form>
         <ul>
           {getTodos(this.state).map((todo) => (
