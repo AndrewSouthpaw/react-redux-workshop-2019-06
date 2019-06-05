@@ -1,0 +1,28 @@
+
+- basics of React testing
+  - enzyme
+  - concept of wrapper
+  - shallow wrapper
+    - common methods
+      - setProps, setState
+      - find
+      - props
+      - update
+      - instance
+      - childAt
+      - children
+      - state
+      - unmount
+  - show how shallow tests often don't uncover bugs
+  - show how shallow tests are brittle and test implementation
+  - writing mount tests
+    - common methods
+      - simulate
+      - text
+      - exists
+      - sel
+      - findByText
+  - show writing async tests
+    - using `axios-mock-adapter`
+    - bonus: can use it for e2e dev testing without a server!
+    
