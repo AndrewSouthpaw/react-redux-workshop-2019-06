@@ -17,3 +17,9 @@ export const initialTodos = [
   { id: 4, name: 'Profit' },
 ]
 
+export const flushPromises = () => new Promise(resolve => setTimeout(resolve, 0))
+
+export const reflush = async (wrapper) => {
+  await flushPromises()
+  wrapper.update()
+}
