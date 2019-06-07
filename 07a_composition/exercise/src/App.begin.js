@@ -1,6 +1,37 @@
 import React from 'react'
 import './App.scss'
 
+export const CompareImages = ({ leftImageUrl, rightImageUrl }) => (
+  <div className="SplitPane">
+    <div className="split-pane">
+      <div>
+        <img src={leftImageUrl} />
+      </div>
+
+      <div>
+        <img src={rightImageUrl} />
+      </div>
+    </div>
+  </div>
+)
+
+export const CompareWords = ({ left, right }) => (
+  <div className="SplitPane">
+    <p>We are comparing words!</p>
+    <div className="split-pane">
+      <div>
+        <p><strong>Word 1</strong></p>
+        <p>{left}</p>
+      </div>
+
+      <div>
+        <p><strong>Word 2</strong></p>
+        <p>{right}</p>
+      </div>
+    </div>
+  </div>
+)
+
 export const ListWithId = ({ items }) => (
   <ul className="FancyListClass FancyListSpecialClass WhyMustThereBeSoManyClasses">
     {items.map(({ id, text }) => (<li key={id}>{id}: {text}</li>))}
@@ -37,6 +68,12 @@ export class App extends React.Component {
                 <List items={items} />
                 <p>List showing id and item</p>
                 <ListWithId items={items} />
+
+                <CompareWords left="Foo" right="Bar" />
+                <CompareImages
+                  leftImageUrl="https://www.placecage.com/c/200/300"
+                  rightImageUrl="https://www.placecage.com/c/200/301"
+                />
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>

@@ -58,16 +58,14 @@ img {
   font-size: larger;
 }
 
-#counter {
-  border: 2px solid #cc0000;
-  color: #ffffff;
-  text-align: center;
-  padding: 4px;
-  width: 150px;
-  background: #000000;
-  font: normal 12px tahoma, verdana, Arial;
+.SplitPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#counter span {
-  font-weight: bold;
+.split-pane {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
