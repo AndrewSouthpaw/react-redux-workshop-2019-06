@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App shallow can be deceptive or useless... 1`] = `
+"<div className=\\"App\\">
+  <WelcomeDialog />
+  <Guestbook />
+  <Counter />
+</div>"
+`;

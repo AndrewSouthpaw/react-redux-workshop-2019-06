@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.modal {
+  color: black;
+}
+
+img {
+  width: 100px;
+}
+
+.FancyBorder {
+  width: 70%;
+  padding: 10px 10px;
+  border: 10px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.FancyBorder-blue {
+  border-color: blue;
+}
+
+.FancyBorder-blue {
+  border-color: blue;
+}
+
+.Dialog-title {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.Dialog-message {
+  font-size: larger;
+}
+
+#counter {
+  border: 2px solid #cc0000;
+  color: #ffffff;
+  text-align: center;
+  padding: 4px;
+  width: 150px;
+  background: #000000;
+  font: normal 12px tahoma, verdana, Arial;
+}
+
+#counter span {
+  font-weight: bold;
+}
