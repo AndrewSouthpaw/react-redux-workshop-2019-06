@@ -22,10 +22,10 @@ export class PickableCages extends React.Component {
     const { cageChoices } = this.state
     return PickableCages.cages.map((cage) => (
       <div className="cage-display" key={cage.id}>
-        <div className="cage-img" onClick={() => { this.toggleCage(cage.id) }}>
+        <div className="cage-img" onClick={() => { this.toggleCage(cage.id) }} data-test-id="dt-cage">
           <img src={cage.url} alt="A beautiful cage" />
           {cageChoices[cage.id] && (
-            <div className="overlay overlay-yes" />
+            <div className="overlay overlay-yes" data-test-id="dt-overlay" />
           )}
         </div>
       </div>
