@@ -24,3 +24,11 @@ export const addAndSaveTodoAsync = (text) => (
     dispatch(addTodo(data))
   }
 )
+
+export const doComplicatedThing = () => (
+  (dispatch, getState) => {
+    const message = 'You cannot handle how complicated this is! 😱'
+    alert(message)
+    throw new Error(message)
+  }
+)

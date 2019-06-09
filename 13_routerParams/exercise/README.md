@@ -19,6 +19,6 @@ Goals
 - on [Actors] route, allow toggling between showing a regular or greyscale photo: `www.[domain].com/200/300` vs `www.[domain].com/g/200/300`. Track this using a query parameter.
 
 
-CHALLENGE MODE 🏅
+🤯 CHALLENGE MODE 🏅
 
 - Write tests

@@ -15,3 +15,7 @@
     - Simulate clicking the checkbox
     - Check that todo is now styled to have a line through it
 - THEN, make the tests pass
+
+🤯 CHALLENGE MODE 🏅
+
+- Write tests for the "do something really complicated button", where you selectively stub out that thunk and check to see that it is called when you click the button

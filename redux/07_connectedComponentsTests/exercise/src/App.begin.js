@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import { connect } from 'react-redux'
-import { addTodo, getTodosFromServerAsync, toggleTodo } from './actions'
+import { addTodo, doComplicatedThing, getTodosFromServerAsync, toggleTodo } from './actions'
 
 class Todo extends React.Component {
   render() {
@@ -40,6 +40,8 @@ export class _App extends React.Component {
 
   handleTodoCheck = (i) => { this.props.dispatch(toggleTodo(i)) }
 
+  doComplicatedThing = () => { this.props.dispatch(doComplicatedThing()) }
+
   render() {
     const { todos } = this.props
     const { loading } = this.state
@@ -59,6 +61,7 @@ export class _App extends React.Component {
                 <Todo {...todo} key={todo.id} onChange={() => { this.handleTodoCheck(i) }} />
               ))}
             </ul>
+            <button onClick={this.doComplicatedThing}>Do something REALLY COMPLICATED</button>
           </>
         )}
       </div>

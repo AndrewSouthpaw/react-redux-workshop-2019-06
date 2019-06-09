@@ -8,7 +8,7 @@ Goals
 
 - Refactor the app to use hooks and stateless functional components
 
-CHALLENGE MODE 🏅:
+🤯 CHALLENGE MODE 🏅
 
 - Extract behavior of selecting only one option at a time into a `useRadioBehavior` hook
 - Apply that to a new custom list, where the items can be selected, only one highlighted at a time

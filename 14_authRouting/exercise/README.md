@@ -7,7 +7,7 @@ Goals
 - Figure out how to use `fakeAuthV2Async`, where the `#isAuthenticated` call is an asynchronous check, in `PrivateRoute`
 - Then fix `Profile` which also needs to know when the user is authenticated
 
-CHALLENGE MODE 🏅:
+🤯 CHALLENGE MODE 🏅
 
 - Pull out the logic in `PrivateRoute` and `Profile` to store info about auth state and the ability to check on auth state
 - Make sure you're not doing things like bombarding your auth service with too many duplicate requests

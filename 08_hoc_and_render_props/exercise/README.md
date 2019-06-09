@@ -5,7 +5,7 @@ Goals
 - Extract the timing business logic in `Timer` and `CountdownTimer` using a HOC `withTimer`
 - Extract the timing business logic in `Timer` and `CountdownTimer` using a render prop `ElapsedTime`
 
-CHALLENGE MODE 🏅:
+🤯 CHALLENGE MODE 🏅
 
 - Write tests for the app that can be run across all the different implementations
 - Verify that Timer 1 goes up
