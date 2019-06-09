@@ -3,7 +3,7 @@
 Goals
 
 - Your prototype was cute, but it turns out the auth service isn't synchronous -- you have to talk to a real server. (What a shock.)
-- Turns out your `PrivateRoute` assumes that information IS synchronous though. Bummer. And you don't want to cache a result locally, you should check when it matters.
+- To make matters worse, your `PrivateRoute` assumes that information IS synchronous though. Bummer. And you don't want to cache a result locally, you should check when it matters.
 - Figure out how to use `fakeAuthV2Async`, where the `#isAuthenticated` call is an asynchronous check, in `PrivateRoute`
 - Then fix `Profile` which also needs to know when the user is authenticated
 
