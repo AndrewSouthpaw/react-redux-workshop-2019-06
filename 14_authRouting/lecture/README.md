@@ -1,5 +1,5 @@
-# Hooks (Advanced)
+# Auth
 
 Additional reading
 
-- https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+- https://hackernoon.com/react-authentication-in-depth-part-2-bbf90d42efc9

@@ -1,4 +1,4 @@
-# Hooks (Advanced)
+# Hooks (useEffect and More)
 
 Additional reading
 
