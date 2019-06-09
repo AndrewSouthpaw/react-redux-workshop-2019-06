@@ -28,3 +28,7 @@ export const findByText = (text, wrapper, options = {}) => {
   const comparator = options.exact ? x => textContent(x) === text : x => new RegExp(text).test(textContent(x))
   return wrapper.findWhere(comparator).filterWhere(x => x.html().startsWith('<')).last()
 }
+
+// Special data must be passed to Link component to correctly simulate navigation to link. ¯\_(ツ)_/¯
+// https://github.com/airbnb/enzyme/issues/516
+export const navigateLink = (wrapper, data = {}) => wrapper.simulate('click', { button: 0, ...data })

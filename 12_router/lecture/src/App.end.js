@@ -32,12 +32,14 @@ export const App = () => {
               </ul>
             </nav>
 
-            <Switch>
-              <Route path="/" exact component={Index} />
-              <Route path="/about/" component={About} />
-              <Route path="/users/" component={Users} />
-              <Route component={NotFound} />
-            </Switch>
+            <div data-test-id="dt-main">
+              <Switch>
+                <Route path="/" exact component={Index} />
+                <Route path="/about/" component={About} />
+                <Route path="/users/" component={Users} />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
 
           </div>
         </div>
