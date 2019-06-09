@@ -8,7 +8,7 @@
   - (Remember, don't use `setState`, `instance`, `find('SomeNamedComponent')`, or anything else that tests implementation details)
 - Once you have some nicely failing tests, make them pass and fix the app!
 
-CHALLENGE MODE
+CHALLENGE MODE 🏅
 
 - Same story, but now the todo feature saves to a server! 
 - You got the frontend code, but the team is being slow getting the server to you. Use `axios-mock-adapter` to stub out POST requests to `/todos` (just return a 200) so you can play around with the app

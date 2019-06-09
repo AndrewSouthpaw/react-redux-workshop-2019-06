@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  text-align: left;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+@mixin basic-style {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App {
+  @include basic-style;
+  min-height: 100vh;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.RouterInfo {
+  @include basic-style;
+  width: 400px;
+  text-align: left;
+  padding: 40px;
+}
+
+.split-pane {
+  display: flex;
+  flex-direction: row;
+}
