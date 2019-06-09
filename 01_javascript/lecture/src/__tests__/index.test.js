@@ -44,6 +44,24 @@ describe('JavaScript Review', () => {
       expect(getAndrewsAgeCorrectly()).toEqual(32)
     })
 
+    it('should have the same problem with classes, unless they use the class property syntax', () => {
+      class Human {
+        constructor(age) {
+          this.age = age
+        }
+        foo() { return this.age }
+        bar = () => { return this.age }
+      }
+
+      const andrew = new Human(32)
+      expect(andrew.foo()).toEqual(32)
+      expect(andrew.bar()).toEqual(32)
+      const storedFoo = andrew.foo
+      const storedBar = andrew.bar
+      expect(() => { storedFoo() }).toThrow()
+      expect(storedBar()).toEqual(32)
+    })
+
     it('should allow partially applying arguments', () => {
       const add = (a, b) => a + b
       const add2ToSomething = add.bind(null, 2)
