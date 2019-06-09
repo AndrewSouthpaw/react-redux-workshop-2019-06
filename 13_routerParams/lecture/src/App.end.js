@@ -36,10 +36,18 @@ const Users = showMatch(() => {
   return (
     <div>
       <h2>Users</h2>
+      <div>
+        <label>
+          <Link key={desc} to={{ path: '/users/', search: desc ? '' : '?sort=desc' }}>
+            <input type="checkbox" defaultChecked={desc} />
+          </Link>
+          Reverse order
+        </label>
+      </div>
       <ul>
         {sortedUsers.map(({ id, name }) => (
-          <li><Link to={`/users/${id}`}>{name}</Link></li>
-          ))}
+          <li key={id}><Link to={`/users/${id}`}>{name}</Link></li>
+        ))}
       </ul>
     </div>
   )

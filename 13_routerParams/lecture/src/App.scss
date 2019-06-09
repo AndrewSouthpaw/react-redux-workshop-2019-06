@@ -45,3 +45,14 @@ nav ul {
   display: flex;
   flex-direction: row;
 }
+
+input[type=checkbox], input[type=radio] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
+  margin-right: 10px;
+}
+
+input[type=radio] {
+  bottom: 2px;
+}
