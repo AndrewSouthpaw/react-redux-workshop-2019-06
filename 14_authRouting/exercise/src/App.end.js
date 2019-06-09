@@ -33,14 +33,17 @@ const Profile = withRouter(({ history }) => {
   )
 })
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = withRouter(({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false)
   const [hasAuth, setAuth] = useState(false)
+  const checkAuth = async () => {
+    setAuth(await fakeAuthV2Async.isAuthenticated())
+    setLoaded(true)
+  }
+  useEffect(() => { checkAuth() })
   useEffect(() => {
-    (async () => {
-      setAuth(await fakeAuthV2Async.isAuthenticated())
-      setLoaded(true)
-    })()
+    const unlisten = rest.history.listen(checkAuth)
+    return () => unlisten()
   })
 
   console.log('loaded', loaded)
@@ -64,7 +67,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       )}
     />
   )
-}
+})
 
 function Public() {
   return <h3>Public</h3>
