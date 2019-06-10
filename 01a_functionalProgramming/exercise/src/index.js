@@ -1,6 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { App } from './App.begin'
-// import { App } from './App.end'
+import * as R from 'ramda'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+window.R = R

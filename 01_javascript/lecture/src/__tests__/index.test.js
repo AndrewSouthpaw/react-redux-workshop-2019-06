@@ -144,8 +144,6 @@ describe('JavaScript Review', () => {
       // If you comment out this line, test breaks
       // await new Promise(r => setTimeout(r, 1000))
       expect(1).toBe(1)
-
-      jest.runTimersToTime(3000)
     })
   })
 

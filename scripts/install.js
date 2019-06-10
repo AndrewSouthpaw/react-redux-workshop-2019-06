@@ -1,7 +1,6 @@
 const shell = require("shelljs");
 
-[
-].forEach(dir => {
+[].forEach(dir => {
   shell.cd(`${dir}/exercise`);
   shell.echo(`\nInstalling exercise ${dir}:`);
   shell.exec(`yarn`);

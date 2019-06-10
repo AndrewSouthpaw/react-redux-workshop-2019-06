@@ -59,6 +59,8 @@ describe('JavaScript Review', () => {
   })
 
   describe('bind CHALLENGE MODE', () => {
+    // todo: write your own implementation of bind!
+
     Function.prototype.myBind = function (newThis) {
       /* ... */
       return function boundFunction() {
@@ -97,7 +99,7 @@ describe('JavaScript Review', () => {
       const add = (a, b) => a + b
       const subtract = (a, b) => a - b
       const multiply = (a, b) => a * b
-      const operate = undefined // fix me
+      const operate = undefined // todo
       expect(operate(add, [1, 2, 3, 4])).toEqual(10)
       expect(operate(subtract, [1, 2, 3, 4])).toEqual(-8)
       expect(operate(multiply, [1, 2, 3, 4])).toEqual(24)
@@ -105,21 +107,28 @@ describe('JavaScript Review', () => {
   })
 
   describe('async/await', () => {
-    const flushPromises = () => new Promise(resolve => setTimeout(resolve, 0))
-
     it('should allow waiting for async stuff where you do not have access to await it', async () => {
+      // this code doesn't work yet, figure out how to wait for the setTiemout to run
       const somethingAsync = () => {
         const obj = { stats: 0 }
-        setTimeout(() => {
-          obj.stats = 42
-        }, 0)
+        setTimeout(() => { obj.stats = 42 }, 0)
         return obj
       }
       const res = somethingAsync()
       expect(res.stats).toEqual(42)
     })
 
-    it('CHALLENGE MODE: should be able to test behavior of an interval counter', () => {
+    it('CHALLENGE MODE: should be able to test behavior of an interval counter', async () => {
+      /**
+       * this one is pretty tough. You are not allowed to get rid of the `async` above, or change the
+       * setInterval behavior to solve the test. You are also not allowed to make this test run for many seconds,
+       * it should still actually execute in < ~50 ms.
+       *
+       * Remember that `useFakeTimers` messes up the async behavior of Jest promises, so you'll need to find
+       * a different way to force the event loop to the next tick. There's a couple ways to do it.
+       *
+       * If you want to google around, feel free -- it'll still be a little hard, just not quite as hard. ;-)
+       */
       jest.useFakeTimers()
       const sleep = async timeInMs => new Promise(res => setTimeout(res, timeInMs))
 
@@ -133,20 +142,19 @@ describe('JavaScript Review', () => {
 
       expect(counter).toEqual(0)
 
-      // todo
+      // do something here to make time appear to elapse
       expect(counter).toEqual(1)
 
-      // todo
+      // do something here to make time appear to elapse
       expect(counter).toEqual(2)
     })
   })
 
   describe('class fields', () => {
     it('create a class that starts with a unique list of numbers using class fields syntax', () => {
-      class List {
-        /* ... */
-      }
-      List.prototype.numbers = [1, 2, 3] // what's wrong with this code?
+      // something is wrong with this code, and test fails. Fix the code to make it pass.
+      class List {}
+      List.prototype.numbers = [1, 2, 3]
       const [list1, list2] = [new List(), new List()]
       list1.numbers.push(4)
       expect(list1.numbers).toEqual([1, 2, 3, 4])
@@ -154,12 +162,13 @@ describe('JavaScript Review', () => {
     })
 
     it('should have the context always bound', () => {
+      // change the way `sum` is written so it can always have the context of the List object
       class List {
         numbers = [1, 2, 3]
         sum() { this.numbers.reduce((a, b) => a + b) }
       }
 
-      function add1(getNums) { return 1 + getNums() }
+      function add1(sumFn) { return 1 + sumFn() }
 
       const list = new List()
       expect(add1(list.sum)).toEqual(7)
