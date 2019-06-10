@@ -101,6 +101,8 @@ describe('JavaScript Review', () => {
       expect(rest).toEqual({ b: 2, c: 3 })
     })
 
+    it('should be able to copy an object using the spread operator', () => {})
+
     it('should collect remaining arguments of an array', () => {
       const arr = [1, 2, 3]
       const [first, ...rest] = arr

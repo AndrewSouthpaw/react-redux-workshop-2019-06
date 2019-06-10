@@ -7,6 +7,10 @@ A workshop on React and Redux.
 $ yarn
 ```
 
+# Feedback
+
+Day 1, afternoon: [survey](https://forms.gle/6Q5rCGRh8ki9CegJ9)
+
 # Running a module
 
 Navigate into the exercise/lecture, then run:
