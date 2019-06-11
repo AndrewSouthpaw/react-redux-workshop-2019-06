@@ -16,7 +16,7 @@ describe('Functional Programming', () => {
           3: { id: 3, name: 'Charlie' },
         }
         const ids = [1, 3]
-        const hydrate = (personsById, ids) => R.map(id => personsById[id], ids)
+        const hydrate = (personsById, ids) => R.map(id => data[id], ids)
         expect(hydrate(data, ids)).toEqual([{ id: 1, name: 'Alice' }, { id: 3, name: 'Charlie' }])
       })
 
