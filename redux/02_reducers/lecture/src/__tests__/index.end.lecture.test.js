@@ -1,4 +1,4 @@
-import { todos } from '../index'
+import { todos } from '../index.end.lecture'
 
 describe('Better reducers', () => {
   def('initialState', () => [

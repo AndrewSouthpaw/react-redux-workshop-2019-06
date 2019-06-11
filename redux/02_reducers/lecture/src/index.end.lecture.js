@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { Handlers } from './handlers'
+import { createHandlers } from 'redux-handlers'
 
 const state = {
   todos: [
@@ -20,7 +20,7 @@ export function visibilityFilter(state = 'SHOW_ALL', action) {
   }
 }
 
-const todosHandlers = Handlers()
+const todosHandlers = createHandlers()
 
 export const addTodo = (text, state) => {
   return state.concat([{ text: text, completed: false }])
