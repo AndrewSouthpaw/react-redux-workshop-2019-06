@@ -10,6 +10,7 @@ $ yarn
 # Feedback
 
 Day 1, afternoon: [survey](https://forms.gle/6Q5rCGRh8ki9CegJ9)
+Day 2, afternoon: [survey](https://forms.gle/UMPrMXUoqGx62bH87)
 
 # Running a module
 
