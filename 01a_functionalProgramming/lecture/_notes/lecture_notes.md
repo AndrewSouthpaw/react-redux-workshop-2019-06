@@ -1,0 +1,14 @@
+map
+reduce
+filter
+curry
+prop
+propOr
+assoc
+dissoc
+assocPath
+dissocPath
+evolve
+pipe
+compose
+mapObjIndexed
