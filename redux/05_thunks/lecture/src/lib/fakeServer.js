@@ -1,8 +1,11 @@
 import { nextId } from './nextId'
 
+export const sleep = async timeInMs => new Promise(res => setTimeout(res, timeInMs))
+
 const PROBABILITY_OF_SERVER_FAILURE = 0.25
 
-const simulateServerFailure = (data) => {
+const simulateServerFailure = async (data) => {
+  await sleep(1000)
   if (Math.random() < PROBABILITY_OF_SERVER_FAILURE) {
     return Promise.reject('Could not talk to server, try again later. 🤷‍♂️')
   } else {
@@ -11,5 +14,5 @@ const simulateServerFailure = (data) => {
 }
 
 export const saveTodoToServer = (todo) => {
-  simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
+  return simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
 }
