@@ -1,5 +1,4 @@
 import { createHandlers } from 'redux-handlers'
-import { curry } from 'ramda'
 
 const todosHandler = createHandlers()
 
@@ -14,10 +13,3 @@ export const toggleTodo = (index, state) => (
 todosHandler.registerHandler('TOGGLE_TODO', toggleTodo)
 
 export const todos = todosHandler.createReducer([])
-
-export function todoAppState(state = {}, action) {
-  return {
-    todos: todos(state.todos, action),
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-  }
-}
