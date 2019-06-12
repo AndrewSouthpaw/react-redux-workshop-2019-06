@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.scss'
-import { connect } from 'react-redux'
 
 /**
  * Goal:
@@ -17,9 +16,10 @@ class Todo extends React.Component {
   }
 }
 
-export class _App extends React.Component {
+export class App extends React.Component {
   state = {
-    todo: ''
+    todo: '',
+    todos: []
   }
 
   resetFom() { this.setState({ todo: '' }) }
@@ -27,15 +27,14 @@ export class _App extends React.Component {
   addTodo = (e) => {
     e.preventDefault()
     const { todo } = this.state
-    this.props.dispatch({ type: 'ADD_TODO', text: todo })
+    // tell store to add todo
     this.resetFom()
   }
 
   handleChange = (e) => { this.setState({ todo: e.target.value }) }
 
   render() {
-    const { todos } = this.props
-    const { todo } = this.state
+    const { todo, todos } = this.state
     return (
       <div className="App">
         <h1>My Todos ({todos.length})</h1>
@@ -52,9 +51,3 @@ export class _App extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state, ownProps) => ({
-  todos: state.todos,
-})
-
-export const App = connect(mapStateToProps)(_App)
