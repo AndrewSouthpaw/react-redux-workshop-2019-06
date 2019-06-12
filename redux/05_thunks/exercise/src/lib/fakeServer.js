@@ -1,17 +1,13 @@
-const PROBABILITY_OF_SERVER_FAILURE = 0.25
+const PROBABILITY_OF_SERVER_FAILURE = 0.1
 
-let id = 5
+export const sleep = async timeInMs => new Promise(res => setTimeout(res, timeInMs))
+
+let id = 0
 
 export const nextId = () => id++
 
-const todos = [
-  { id: 1, text: 'Learn about fetching data' },
-  { id: 2, text: 'Discover async' },
-  { id: 3, text: '???' },
-  { id: 4, text: 'Profit' },
-]
-
-const simulateServerFailure = (data) => {
+const simulateServerFailure = async (data) => {
+  await sleep(1000)
   if (Math.random() < PROBABILITY_OF_SERVER_FAILURE) {
     return Promise.reject('Could not talk to server, try again later. 🤷‍♂️')
   } else {
@@ -20,9 +16,16 @@ const simulateServerFailure = (data) => {
 }
 
 export const getTodosFromServerAsync = () => {
-  simulateServerFailure({ data: todos })
+  return simulateServerFailure({
+    data: [
+      { id: nextId(), text: 'Learn about fetching data' },
+      { id: nextId(), text: 'Discover async' },
+      { id: nextId(), text: '???' },
+      { id: nextId(), text: 'Profit' },
+    ],
+  })
 }
 
 export const saveTodoToServer = (todo) => {
-  simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
+  return simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
 }
