@@ -8,7 +8,7 @@ import { App } from './App.end'
 import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import './lib/fakeServer'
-import { receiveLists, receiveTodos } from './actions'
+import { chooseList, receiveLists, receiveTodos } from './actions.end'
 import { nextListsId, nextTodoId } from './lib/helpers'
 import { prop } from 'ramda'
 
@@ -33,6 +33,7 @@ const lists = [
 
 console.log('lists', lists)
 
+store.dispatch(chooseList(lists[0].id))
 store.dispatch(receiveLists(lists))
 store.dispatch(receiveTodos(todos))
 

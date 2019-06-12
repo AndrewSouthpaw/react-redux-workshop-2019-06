@@ -13,7 +13,10 @@ code {
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -35,4 +38,8 @@ code {
 
 .App-link {
   color: #61dafb;
+}
+
+.lists-pane {
+  width: 300px;
 }

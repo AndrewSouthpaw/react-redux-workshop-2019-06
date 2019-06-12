@@ -1,11 +1,11 @@
 import { createHandlers } from 'redux-handlers'
-import { append, assoc, evolve, indexBy, not, prop } from 'ramda'
+import { assocPath, append, assoc, evolve, indexBy, not, prop } from 'ramda'
 import { nextListsId, nextTodoId } from './lib/helpers'
 
 // lists
 const listsHandlers = createHandlers()
 
-export const receiveLists = (lists, state) => indexBy(prop('id'), lists)
+export const receiveLists = (lists, state) => ({ ...state, byId: indexBy(prop('id'), lists) })
 listsHandlers.registerHandler('RECEIVE_LISTS', receiveLists)
 
 export const chooseList = (id, state) => assoc('activeList', id, state)
@@ -13,11 +13,13 @@ listsHandlers.registerHandler('CHOOSE_LIST', chooseList)
 
 export const addList = (name, state) => {
   const newList = { id: nextListsId(), name, todoIds: [] }
-  return assoc(newList.id, newList, state)
+  return assocPath(['byId', newList.id], newList, state)
 }
 listsHandlers.registerHandler('ADD_LIST', addList)
 
-export const addTodoToList = (listId, todoId, state) => evolve({ [listId]: { todoIds: append(todoId) } }, state)
+export const addTodoToList = (listId, todoId, state) => (
+  evolve({ byId: { [listId]: { todoIds: append(todoId) } } }, state)
+)
 listsHandlers.registerHandler('ADD_TODO_TO_LIST', addTodoToList)
 
 export const listsReducer = listsHandlers.createReducer({})
