@@ -1,9 +1,9 @@
-import { Handlers } from './lib/handlers'
+import { createHandlers } from 'redux-handlers'
 import { assoc, evolve, indexBy, not, prop } from 'ramda'
 import { nextListsId, nextTodoId } from './lib/helpers'
 
 // lists
-const listsHandlers = Handlers()
+const listsHandlers = createHandlers()
 
 export const receiveLists = (lists, state) => indexBy(prop('id'), lists)
 listsHandlers.registerHandler('RECEIVE_LISTS', receiveLists)
@@ -20,7 +20,7 @@ listsHandlers.registerHandler('ADD_LIST', addList)
 export const listsReducer = listsHandlers.createReducer({})
 
 // todos
-const todosHandlers = Handlers()
+const todosHandlers = createHandlers()
 
 export const receiveTodos = (todos, state) => indexBy(prop('id'), todos)
 todosHandlers.registerHandler('RECEIVE_TODOS', receiveTodos)
