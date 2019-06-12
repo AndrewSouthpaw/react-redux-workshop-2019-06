@@ -109,7 +109,7 @@ const _ListsMapStateToProps = (state, ownProps) => ({
 })
 export const Lists = connect(_ListsMapStateToProps)(_Lists)
 
-export class _App extends React.Component {
+export class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -119,7 +119,3 @@ export class _App extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state, ownProps) => ({})
-
-export const App = connect(mapStateToProps)(_App)
