@@ -1,6 +1,6 @@
-import { Handlers } from './lib/handlers'
+import { createHandlers } from 'redux-handlers'
 
-const { registerHandler, createReducer } = Handlers()
+const { registerHandler, createReducer } = createHandlers()
 
 export const receiveTodos = (todos, state) => todos
 registerHandler('RECEIVE_TODOS', receiveTodos)

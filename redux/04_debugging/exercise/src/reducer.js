@@ -1,7 +1,7 @@
-import { Handlers } from './lib/handlers'
+import { createHandlers } from 'redux-handlers'
 import { nextId } from './lib/nextId'
 
-const { registerHandler, createReducer } = Handlers()
+const { registerHandler, createReducer } = createHandlers()
 
 export const addTodo = (text, state) => state.concat([{ id: nextId(), text: text.substring(0, 5), completed: false }])
 registerHandler('ADD_TODO', addTodo)

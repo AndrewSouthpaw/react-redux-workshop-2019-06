@@ -1,7 +1,7 @@
-import { Handlers } from './handlers'
+import { createHandlers } from 'redux-handlers'
 import { curry } from 'ramda'
 
-const visibilityFilterHandler = Handlers()
+const visibilityFilterHandler = createHandlers()
 
 export const setVisibilityFilter = curry((text, state) => text)
 visibilityFilterHandler.registerHandler(
@@ -15,7 +15,7 @@ visibilityFilterHandler.registerHandler(
 
 export const visibilityFilter = visibilityFilterHandler.createReducer('SHOW_ALL')
 
-const todosHandler = Handlers()
+const todosHandler = createHandlers()
 
 export const addTodo = (text, state) => state.concat([{ text, completed: false }])
 todosHandler.registerHandler('ADD_TODO', addTodo)

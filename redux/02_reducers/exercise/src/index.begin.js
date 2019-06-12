@@ -1,4 +1,4 @@
-import { Handlers } from './handlers'
+import { createHandlers } from 'redux-handlers'
 
 /**
  * Goal:
@@ -16,7 +16,7 @@ export function visibilityFilter(state = 'SHOW_ALL', action) {
   }
 }
 
-const todosHandler = Handlers()
+const todosHandler = createHandlers()
 
 export const addTodo = (text, state) => state.concat([{ text, completed: false }])
 todosHandler.registerHandler('ADD_TODO', addTodo)
