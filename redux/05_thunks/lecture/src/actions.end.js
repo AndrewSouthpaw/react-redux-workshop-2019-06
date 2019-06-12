@@ -10,7 +10,7 @@ export const toggleTodo = (index) =>
 // thunks
 //////////////////
 
-export const saveTodoAndAddToState = (text) => (
+export const saveTodoAndAddToStateAsync = (text) => (
   async (dispatch, getState) => {
     const { data: todo } = await saveTodoToServer(text)
     dispatch(addTodo(todo))

@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import { connect } from 'react-redux'
-import { addAndSaveTodoAsync, toggleTodo } from './actions'
+import { saveTodoAndAddToStateAsync, toggleTodo } from './actions.end'
 
 class Todo extends React.Component {
   render() {
@@ -27,7 +27,7 @@ export class _App extends React.Component {
     e.preventDefault()
     const { todo } = this.state
     try {
-      await this.props.dispatch(addAndSaveTodoAsync(todo))
+      await this.props.dispatch(saveTodoAndAddToStateAsync(todo))
       this.resetFom()
     } catch (e) {
       console.log('e', e)
