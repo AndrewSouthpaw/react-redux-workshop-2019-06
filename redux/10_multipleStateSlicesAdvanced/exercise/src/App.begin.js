@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.scss'
 import { connect } from 'react-redux'
-import { addList, addTodoToList, chooseList, toggleTodo } from './actions.end'
+import { addList, addTodoToList, chooseList, toggleTodo } from './actions'
 import { Todo } from './lib/Todo'
-import { getActiveList, getLists, getTodos } from './selectors.end'
+import { getActiveList, getLists, getTodos } from './selectors'
 
 export class _Todos extends React.Component {
   state = {

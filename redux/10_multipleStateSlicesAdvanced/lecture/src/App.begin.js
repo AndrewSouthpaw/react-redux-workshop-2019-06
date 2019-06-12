@@ -2,7 +2,7 @@ import React from 'react'
 import './App.scss'
 import { connect } from 'react-redux'
 import { addTodo, toggleTodo } from './actions'
-import { Todo } from './components/Todo'
+import { Todo } from './lib/Todo'
 
 export class _App extends React.Component {
   state = {

@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { applyMiddleware, combineReducers, createStore } from 'redux'
-import { todosReducer, listsReducer } from './reducer.end'
+import { todosReducer, listsReducer } from './reducer'
 import thunk from 'redux-thunk'
-// import { App } from './App.begin'
-import { App } from './App.end'
+import { App } from './App.begin'
+// import { App } from './App.end'
 import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import './lib/fakeServer'
-import { chooseList, receiveLists, receiveTodos } from './actions.end'
+import { chooseList, receiveLists, receiveTodos } from './actions'
 import { nextListsId, nextTodoId } from './lib/helpers'
 import { prop } from 'ramda'
 
@@ -34,7 +34,6 @@ const lists = [
 store.dispatch(chooseList(lists[0].id))
 store.dispatch(receiveLists(lists))
 store.dispatch(receiveTodos(todos))
-
 
 const app = (
   <Provider store={store}>
