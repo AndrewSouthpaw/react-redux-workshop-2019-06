@@ -7,8 +7,8 @@ export const addTodo = (text, state) => state.concat([{ id: nextId(), text, comp
 registerHandler('ADD_TODO', addTodo)
 
 export const toggleTodo = (id, state) => (
-  state.map((todo, i) => (
-    id === i ? { ...todo, completed: !todo.completed } : todo
+  state.map((todo) => (
+    id === todo.id ? { ...todo, completed: !todo.completed } : todo
   ))
 )
 registerHandler('TOGGLE_TODO', toggleTodo)
