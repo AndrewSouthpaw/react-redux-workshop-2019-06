@@ -31,6 +31,10 @@ export class App extends React.Component {
     this.resetFom()
   }
 
+  handleTodoCheck = (id) => {
+    throw new Error('implement me')
+  }
+
   handleChange = (e) => { this.setState({ todo: e.target.value }) }
 
   render() {
@@ -44,7 +48,7 @@ export class App extends React.Component {
         </form>
         <ul>
           {todos.map((todo) => (
-            <Todo {...todo} key={todo.id} />
+            <Todo {...todo} key={todo.id} onChange={() => { this.handleTodoCheck(todo.id) }} />
           ))}
         </ul>
       </div>

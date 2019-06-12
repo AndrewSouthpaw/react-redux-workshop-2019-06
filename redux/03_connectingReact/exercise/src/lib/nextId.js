@@ -1,3 +1,3 @@
-let id = 1
+let id = 0
 
 export const nextId = () => id++
