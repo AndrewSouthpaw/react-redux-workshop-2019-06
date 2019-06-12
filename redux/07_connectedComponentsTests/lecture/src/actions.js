@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { sleep } from './lib/helpers'
 
 export const receiveTodos = (todos) =>
   ({ type: 'RECEIVE_TODOS', todos })

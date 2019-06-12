@@ -1,5 +1,3 @@
-import { saveTodoToServer } from './lib/fakeServer'
-
 export const addTodo = (todo) =>
   ({ type: 'ADD_TODO', todo })
 

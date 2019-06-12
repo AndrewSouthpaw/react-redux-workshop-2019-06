@@ -1,6 +1,6 @@
 import { createHandlers } from 'redux-handlers'
-import { assocPath, append, assoc, evolve, indexBy, not, prop } from 'ramda'
-import { nextListsId, nextTodoId } from './lib/helpers'
+import { append, assoc, assocPath, evolve, indexBy, not, prop } from 'ramda'
+import { nextListsId } from './lib/helpers'
 
 // lists
 const listsHandlers = createHandlers()

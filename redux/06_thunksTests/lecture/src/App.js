@@ -37,7 +37,7 @@ export class _App extends React.Component {
 
   handleChange = (e) => { this.setState({ todo: e.target.value }) }
 
-  handleTodoCheck = (i) => { this.props.dispatch(toggleTodo(i)) }
+  handleTodoCheck = (id) => { this.props.dispatch(toggleTodo(id)) }
 
   render() {
     const { todos } = this.props
@@ -51,8 +51,8 @@ export class _App extends React.Component {
           {error && (<div>{error}</div>)}
         </form>
         <ul>
-          {todos.map((todo, i) => (
-            <Todo {...todo} key={todo.id} onChange={() => { this.handleTodoCheck(i) }} />
+          {todos.map((todo) => (
+            <Todo {...todo} key={todo.id} onChange={() => { this.handleTodoCheck(todo.id) }} />
           ))}
         </ul>
       </div>

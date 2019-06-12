@@ -1,4 +1,4 @@
-import { pipe, assocPath, assoc, append, dissocPath, without } from 'ramda'
+import { append, assoc, assocPath, dissocPath, pipe, without } from 'ramda'
 
 const state = {
   todos: [

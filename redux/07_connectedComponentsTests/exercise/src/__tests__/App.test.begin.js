@@ -1,12 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import { combineReducers } from 'redux'
-import { reducer as todosReducer } from '../reducer'
-import { Provider } from 'react-redux'
 import { _App, App } from '../App.begin'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import MockAxios from 'axios-mock-adapter'
 import { MockStoreFactory, reflush, sel } from '../lib/helpers'
 
