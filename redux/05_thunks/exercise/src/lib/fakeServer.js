@@ -6,7 +6,7 @@ let id = 0
 
 export const nextId = () => id++
 
-const simulateServerFailure = async (data) => {
+const simulateServerInteraction = async (data) => {
   await sleep(1000)
   if (Math.random() < PROBABILITY_OF_SERVER_FAILURE) {
     return Promise.reject('Could not talk to server, try again later. 🤷‍♂️')
@@ -16,7 +16,7 @@ const simulateServerFailure = async (data) => {
 }
 
 export const getTodosFromServerAsync = () => {
-  return simulateServerFailure({
+  return simulateServerInteraction({
     data: [
       { id: nextId(), text: 'Learn about fetching data' },
       { id: nextId(), text: 'Discover async' },
@@ -27,5 +27,5 @@ export const getTodosFromServerAsync = () => {
 }
 
 export const saveTodoToServer = (todo) => {
-  return simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
+  return simulateServerInteraction({ data: { id: nextId(), text: todo, completed: false } })
 }

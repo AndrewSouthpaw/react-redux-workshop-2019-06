@@ -4,7 +4,7 @@ export const sleep = async timeInMs => new Promise(res => setTimeout(res, timeIn
 
 const PROBABILITY_OF_SERVER_FAILURE = 0.25
 
-const simulateServerFailure = async (data) => {
+const simulateServerInteraction = async (data) => {
   await sleep(1000)
   if (Math.random() < PROBABILITY_OF_SERVER_FAILURE) {
     return Promise.reject('Could not talk to server, try again later. 🤷‍♂️')
@@ -14,5 +14,5 @@ const simulateServerFailure = async (data) => {
 }
 
 export const saveTodoToServer = (todo) => {
-  return simulateServerFailure({ data: { id: nextId(), text: todo, completed: false } })
+  return simulateServerInteraction({ data: { id: nextId(), text: todo, completed: false } })
 }
