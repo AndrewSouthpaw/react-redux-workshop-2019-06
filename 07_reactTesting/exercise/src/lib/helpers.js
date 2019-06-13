@@ -1,3 +1,5 @@
+import { curry } from 'ramda'
+
 export const sleep = async timeInMs => new Promise(res => setTimeout(res, timeInMs))
 
 export const fakeGetTodos = async () => {
