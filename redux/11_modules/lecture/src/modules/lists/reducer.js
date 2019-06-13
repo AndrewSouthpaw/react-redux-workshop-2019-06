@@ -1,8 +1,7 @@
 import { createHandlers } from 'redux-handlers'
-import { append, assoc, assocPath, evolve, indexBy, not, prop } from 'ramda'
-import { nextListsId } from './lib/helpers'
+import { append, assoc, assocPath, evolve, indexBy, prop } from 'ramda'
+import { nextListsId } from '../../lib/helpers'
 
-// lists
 const listsHandlers = createHandlers()
 
 export const receiveLists = (lists, state) => ({ ...state, byId: indexBy(prop('id'), lists) })
@@ -22,18 +21,4 @@ export const addTodoToList = (listId, todoId, state) => (
 )
 listsHandlers.registerHandler('ADD_TODO_TO_LIST', addTodoToList)
 
-export const listsReducer = listsHandlers.createReducer({})
-
-// todos
-const todosHandlers = createHandlers()
-
-export const receiveTodos = (todos, state) => indexBy(prop('id'), todos)
-todosHandlers.registerHandler('RECEIVE_TODOS', receiveTodos)
-
-export const addTodo = (todo, state) => assoc(todo.id, todo, state)
-todosHandlers.registerHandler('ADD_TODO', addTodo)
-
-export const toggleTodo = (id, state) => evolve({ [id]: { completed: not } }, state)
-todosHandlers.registerHandler('TOGGLE_TODO', toggleTodo)
-
-export const todosReducer = todosHandlers.createReducer({})
+export const reducer = listsHandlers.createReducer({})
